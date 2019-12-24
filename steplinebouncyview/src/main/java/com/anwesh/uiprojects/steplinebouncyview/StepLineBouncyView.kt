@@ -33,12 +33,13 @@ fun Canvas.drawStepLine(i : Int, scale : Float, h : Float, gap : Float, paint : 
     val finalY : Float = h - offset * h
     val yUp : Float = h - 2 * h * offset
     val sf : Float = scale.sinify().divideScale(i, lines)
+    val sc : Float = scale.divideScale(lines + i, 2 * lines).cosify()
     val y : Float = h * offset + (yUp) * sf
     save()
     translate(i * xGap, y)
     drawLine(0f, 0f, xGap, 0f, paint)
     restore()
-    drawRect(RectF(0f, finalY - yUp * sf, xGap, finalY), paint)
+    drawRect(RectF(0f, finalY - yUp * sc, xGap, finalY), paint)
 }
 
 fun Canvas.drawSLBNode(i : Int, scale : Float, paint : Paint) {
