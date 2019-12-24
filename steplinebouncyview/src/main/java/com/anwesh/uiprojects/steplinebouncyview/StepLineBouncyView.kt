@@ -208,4 +208,13 @@ class StepLineBouncyView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : StepLineBouncyView {
+            val view : StepLineBouncyView = StepLineBouncyView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
